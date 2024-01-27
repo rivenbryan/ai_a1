@@ -121,6 +121,7 @@ def binary_ne_grid(cagey_grid):
             csp_grid.add_constraint(ccon)
     return csp_grid, variable_grid
 
+
 #All different 
 def nary_ad_grid(cagey_grid):
     #Create grid
@@ -137,18 +138,29 @@ def nary_ad_grid(cagey_grid):
             variable_grid.append(Variable('Cell({},{})'.format(row,col),domain))
     csp_grid = CSP("Grid",variable_grid)
     
-    sat_tuple = []
     for row in range(n):
         row_var = []
         for rows in range(n):
             row_var.append(variable_grid[row*n+rows])
         con = Constraint("Row{}".format(row),row_var)
-        print(con)
+        sat_tuples = []
+        for combination in itertools.permutations(domain):
+            sat_tuples.append(combination) # all possible valid row combinations
+        con.add_satisfying_tuples(sat_tuples)
+        csp_grid.add_constraint(con)
+
+
     for col in range(n):
         col_var = []
         for row in range(n):
             col_var.append(variable_grid[row*n + col])
         con = Constraint("Col{}".format(col+1), col_var)
+        for combination in itertools.permutations(domain):
+            sat_tuples.append(combination) # all possible valid row combinations
+        con.add_satisfying_tuples(sat_tuples)
+        csp_grid.add_constraint(con)
+
+    return csp_grid, variable_grid
 
 
 def cagey_csp_model(cagey_grid):
@@ -157,4 +169,5 @@ def cagey_csp_model(cagey_grid):
 
 test = (3, [(3,[(1,1), (2,1)],"+"),(1, [(1,2)], '?'), (8, [(1,3), (2,3), (2,2)], "+"), (3, [(3,1)], '?'), (3, [(3,2), (3,3)], "+")])
 
+#binary_ne_grid(test)
 nary_ad_grid(test)
