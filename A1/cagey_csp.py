@@ -85,7 +85,8 @@ An example of a 3x3 puzzle would be defined as:
 
 import itertools
 from cspbase import *
-
+#(1,n) != (1,n+1) != (1,n+2) Rows NE
+#(n,1) != (n+1,1) != (n+2,1) Cols NE
 def binary_ne_grid(cagey_grid):
     #Create grid
     n = cagey_grid[0] #index 0 should be size of the grid
@@ -95,7 +96,7 @@ def binary_ne_grid(cagey_grid):
     
     
     #Create Variable grid, with cspbase
-    # 3x3 array where each cell is Variable object which has domain of 1,2,3. Without contraints, it means that each cell can be any of the values in its domain
+    # nxn array where each cell is Variable object which has domain of 1,2,3. Without contraints, it means that each cell can be any of the values in its domain
     for row in range(1,n+1):
         for col in range(1,n+1):
             variable_grid.append(Variable('Cell({},{})'.format(row,col),domain))
@@ -104,24 +105,44 @@ def binary_ne_grid(cagey_grid):
     sat_tuple = []
     
     for idx in range(n):
-        for rcell in itertools.combinations(range(n), 2):
-            con = Constraint('Row{}NE{} {}'.format(idx+1,rcell[0]+1,rcell[1]+1),[variable_grid[idx*n+rcell[0]], variable_grid[idx*n+rcell[1]]])
+        for cell in itertools.combinations(range(n), 2):
+            con = Constraint('Row{}NE{} {}'.format(idx+1,cell[0]+1,cell[1]+1),[variable_grid[idx*n+cell[0]], variable_grid[idx*n+cell[1]]])
 
-            ccon = Constraint('Col{}NE{} {}'.format(idx+1,rcell[0]+1,rcell[1]+1),[variable_grid[idx+rcell[0]*n], variable_grid[idx+rcell[1]*n]])
+            ccon = Constraint('Col{}NE{} {}'.format(idx+1,cell[0]+1,cell[1]+1),[variable_grid[idx+cell[0]*n], variable_grid[idx+cell[1]*n]])
         for row in range(1,n+1):
             for col in range(1,n+1):
+                #Applying constraint
                 if row != col:
                     sat_tuple.append((row, col))
+            #Acceptable possibilities added
             con.add_satisfying_tuples(sat_tuple)
             ccon.add_satisfying_tuples(sat_tuple)
             csp_grid.add_constraint(con)
             csp_grid.add_constraint(ccon)
     return csp_grid, variable_grid
 
-
+#All different 
 def nary_ad_grid(cagey_grid):
-    ## IMPLEMENT
-    pass
+    #Create grid
+    n = cagey_grid[0] #index 0 should be size of the grid
+    #variable_grid = [[x for x in range(n)] for y in range(n)]
+    domain = [x+1 for x in range(n)]
+    variable_grid = []
+    
+    
+    #Create Variable grid, with cspbase
+    # nxn array where each cell is Variable object which has domain of 1-n. Without contraints, it means that each cell can be any of the values in its domain
+    for row in range(1,n+1):
+        for col in range(1,n+1):
+            variable_grid.append(Variable('Cell({},{})'.format(row,col),domain))
+    csp_grid = CSP("Grid",variable_grid)
+    
+    sat_tuple = []
+    
+    for row in range(n):
+        
+        con = Constraint("Row{}".format(row), variable_grid[row])
+
 
 def cagey_csp_model(cagey_grid):
     ##IMPLEMENT
@@ -129,4 +150,4 @@ def cagey_csp_model(cagey_grid):
 
 test = (3, [(3,[(1,1), (2,1)],"+"),(1, [(1,2)], '?'), (8, [(1,3), (2,3), (2,2)], "+"), (3, [(3,1)], '?'), (3, [(3,2), (3,3)], "+")])
 
-binary_ne_grid(test)
+nary_ad_grid(test)
