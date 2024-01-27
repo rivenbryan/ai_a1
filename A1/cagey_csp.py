@@ -138,10 +138,17 @@ def nary_ad_grid(cagey_grid):
     csp_grid = CSP("Grid",variable_grid)
     
     sat_tuple = []
-    
     for row in range(n):
-        
-        con = Constraint("Row{}".format(row), variable_grid[row])
+        row_var = []
+        for rows in range(n):
+            row_var.append(variable_grid[row*n+rows])
+        con = Constraint("Row{}".format(row),row_var)
+        print(con)
+    for col in range(n):
+        col_var = []
+        for row in range(n):
+            col_var.append(variable_grid[row*n + col])
+        con = Constraint("Col{}".format(col+1), col_var)
 
 
 def cagey_csp_model(cagey_grid):
