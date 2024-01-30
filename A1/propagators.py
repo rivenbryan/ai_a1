@@ -137,38 +137,37 @@ def prop_FC(csp, newVar=None):
 
     
 
-
 def prop_GAC(csp, newVar=None):
     '''Do GAC propagation. If newVar is None we do initial GAC enforce
        processing all constraints. Otherwise we do GAC enforce with
-       constraints containing newVar on GAC Quezue'''
-    #IMPLEMENT
+       constraints containing newVar on GAC Queue'''
+    # IMPLEMENT
     vals = []
     queue = []
-    if(newVar == None):
-        constraints = csp.get_all_cons() # local variable according to lecture
+
+    if newVar is None:
+        constraints = csp.get_all_cons()  # local variable according to lecture
     else:
         constraints = csp.get_cons_with_var(newVar)
 
     for c in constraints:
         queue.append(c)
 
-    while len(queue) != 0: # not empty
+    while len(queue) != 0:  # not empty
         c = queue.pop(0)
         variables_inScope = c.get_scope()
-
-        for var in variables_inScope: # Removed-inconsistent-Values(Xi, X)
+        for var in variables_inScope:  # Removed-inconsistent-Values(Xi, X)
             for d in var.cur_domain():
-                if c.has_support(var, d) == False: # No Y in domain(X) allows (x,Y) satisfy constraint
+                if not c.has_support(var, d):  # No Y in domain(X) allows (x,Y) satisfy constraint
                     pair = (var, d)
                     if pair not in vals:
                         vals.append(pair)
-                        var.prune_value(d) # Delete it.
+                        var.prune_value(d)  # Delete it.
                         
-                    if var.cur_domain_size() == 0: # Meaning we prune every domain from v, reaching deadend.
+                    if var.cur_domain_size() == 0:  # Meaning we prune every domain from var, reaching deadend.
                         return False, vals
                     else:
-                        for elements in csp.get_cons_with_var(vars):
+                        for elements in csp.get_cons_with_var(var):  # Corrected from v to var
                             if elements not in queue:
-                                queue.append(elements) # Add (Xk, *) to queue
+                                queue.append(elements)  # Add (Xk, *) to queue
     return True, vals

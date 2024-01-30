@@ -43,4 +43,617 @@ test_mrv_3 (__main__.TestMRV) ... ok
 test_mrv_4 (__main__.TestMRV) ... ok
 test_nary_grid_1 (__main__.TestNaryGrid) ... FAIL
 test_nary_grid_2 (__main__.TestNaryGrid) ... FAIL
-test_nary_grid_3 (__main__.TestNaryGrid) ... 
+test_nary_grid_3 (__main__.TestNaryGrid) ... test_bne_grid_1 (__main__.TestBinaryGrid) ... ok
+test_bne_grid_2 (__main__.TestBinaryGrid) ... ok
+test_bne_grid_3 (__main__.TestBinaryGrid) ... FAIL
+test_bne_grid_4 (__main__.TestBinaryGrid) ... FAIL
+test_bne_grid_5 (__main__.TestBinaryGrid) ... FAIL
+test_cage_existence (__main__.TestCageConstraints) ... ERROR
+test_cages_1 (__main__.TestCageConstraints) ... FAIL
+test_cages_2 (__main__.TestCageConstraints) ... FAIL
+test_cages_3 (__main__.TestCageConstraints) ... FAIL
+test_cages_4 (__main__.TestCageConstraints) ... FAIL
+test_cages_5 (__main__.TestCageConstraints) ... FAIL
+test_cages_6 (__main__.TestCageConstraints) ... FAIL
+test_dh_1 (__main__.TestDH) ... ok
+test_dh_2 (__main__.TestDH) ... ok
+test_dh_3 (__main__.TestDH) ... ok
+test_dh_4 (__main__.TestDH) ... ok
+test_mrv_1 (__main__.TestMRV) ... ok
+test_mrv_2 (__main__.TestMRV) ... ok
+test_mrv_3 (__main__.TestMRV) ... ok
+test_mrv_4 (__main__.TestMRV) ... ok
+test_nary_grid_1 (__main__.TestNaryGrid) ... ok
+test_nary_grid_2 (__main__.TestNaryGrid) ... ok
+test_nary_grid_3 (__main__.TestNaryGrid) ... ok
+test_nary_grid_4 (__main__.TestNaryGrid) ... ok
+test_bin_prop_fc_0 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_1 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_2 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_3 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_4 (__main__.TestPropFC) ... ok
+test_prop_fc_0 (__main__.TestPropFC) ... ok
+test_prop_fc_1 (__main__.TestPropFC) ... ok
+test_prop_fc_2 (__main__.TestPropFC) ... ok
+test_prop_fc_3 (__main__.TestPropFC) ... ok
+test_prop_fc_4 (__main__.TestPropFC) ... ok
+test_prop_GAC_0 (__main__.TestPropGAC) ... FAIL
+test_prop_GAC_1 (__main__.TestPropGAC) ... FAIL
+test_prop_GAC_2 (__main__.TestPropGAC) ... FAIL
+test_prop_GAC_3 (__main__.TestPropGAC) ... FAIL
+test_prop_GAC_4 (__main__.TestPropGAC) ... FAIL
+test_prop_GAC_5 (__main__.TestPropGAC) ... FAIL
+test_prop_GAC_6 (__main__.TestPropGAC) ... FAIL
+test_prop_GAC_7 (__main__.TestPropGAC) ... FAIL
+test_prop_GAC_8 (__main__.TestPropGAC) ... FAIL
+test_prop_GAC_9 (__main__.TestPropGAC) ... FAIL
+
+======================================================================
+ERROR: test_cage_existence (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bryantay/Desktop/untitled folder/AI/A1/autograder_stu.py", line 616, in test_cage_existence
+    csp, var_array = cagey_csp_model(board)
+TypeError: cannot unpack non-iterable NoneType object
+
+======================================================================
+FAIL: test_bne_grid_3 (__main__.TestBinaryGrid)
+----------------------------------------------------------------------
+AssertionError: False is not true : Encoded incorrect number of constraints for board: (4, [(2, [(1, 1), (1, 2)], '/'), (3, [(1, 3), (1, 4), (2, 3)], '*'), (8, [(2, 1), (2, 2), (3, 2)], '+'), (4, [(3, 4)], '?'), (3, [(3, 1), (4, 1)], '-'), (4, [(3, 3)], '?'), (6, [(3, 4), (4, 4)], '*'), (2, [(4, 2), (4, 3)], '/')])
+
+
+======================================================================
+FAIL: test_bne_grid_4 (__main__.TestBinaryGrid)
+----------------------------------------------------------------------
+AssertionError: False is not true : Encoded incorrect number of constraints for board: (5, [(1, [(1, 1), (2, 1)], '-'), (10, [(1, 2), (1, 3), (2, 3), (4, 3)], '+'), (9, [(1, 4), (1, 5), (2, 4), (2, 5)], '+'), (40, [(2, 2), (3, 1), (3, 2)], '*'), (50, [(3, 4), (4, 3), (4, 4)], '*'), (10, [(3, 5), (4, 5), (5, 5)], '+'), (9, [(4, 1), (4, 2), (5, 1), (5, 2)], '+'), (4, [(5, 3), (5, 4)], '/')])
+
+
+======================================================================
+FAIL: test_bne_grid_5 (__main__.TestBinaryGrid)
+----------------------------------------------------------------------
+AssertionError: False is not true : Encoded incorrect number of constraints for board: (6, [(11, [(1, 1), (2, 1)], '+'), (3, [(1, 2), (2, 2)], '*'), (20, [(1, 3), (2, 3), (3, 3)], '*'), (2, [(1, 4), (1, 5)], '-'), (6, [(1, 6), (2, 6)], '/'), (6, [(2, 4), (2, 5)], '*'), (5, [(3, 1), (4, 1)], '+'), (40, [(3, 2), (4, 2), (5, 2)], '*'), (10, [(3, 4), (4, 4)], '+'), (10, [(3, 5), (3, 6)], '*'), (3, [(4, 3), (5, 3)], '-'), (8, [(4, 5), (4, 6), (5, 6)], '+'), (1, [(5, 1), (6, 1), (6, 2)], '-'), (11, [(5, 4), (5, 5)], '+'), (1, [(6, 3), (6, 4)], '-'), (2, [(6, 5), (6, 6)], '-')])
+
+
+======================================================================
+FAIL: test_cages_1 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(2, [(4, [(1, 1), (1, 2), (2, 1), (2, 2)], '+')])
+
+
+======================================================================
+FAIL: test_cages_2 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(2, [(4, [(1, 1), (1, 2), (2, 1), (2, 2)], '-')])
+
+
+======================================================================
+FAIL: test_cages_3 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(2, [(4, [(1, 1), (1, 2), (2, 1), (2, 2)], '*')])
+
+
+======================================================================
+FAIL: test_cages_4 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(3, [(10, [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)], '+')])
+
+
+======================================================================
+FAIL: test_cages_5 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(3, [(7, [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)], '-')])
+
+
+======================================================================
+FAIL: test_cages_6 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(3, [(10, [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)], '*')])
+
+
+======================================================================
+FAIL: test_prop_GAC_0 (__main__.TestPropGAC)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "<built-in function vars>". Failed to solve board!
+(3, [(3, [(1, 1), (2, 1)], '+'), (2, [(1, 2), (2, 2)], '-'), (6, [(1, 3), (2, 3), (3, 3)], '*'), (5, [(3, 1), (3, 2)], '+')])
+
+
+======================================================================
+FAIL: test_prop_GAC_1 (__main__.TestPropGAC)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "<built-in function vars>". Failed to solve board!
+(4, [(6, [(1, 1), (2, 1)], '*'), (3, [(1, 2), (1, 3)], '+'), (3, [(1, 4), (2, 4)], '-'), (7, [(2, 2), (2, 3)], '+'), (2, [(3, 1), (3, 2)], '/'), (3, [(3, 3), (4, 3)], '-'), (6, [(3, 4), (4, 4)], '*'), (7, [(4, 1), (4, 2)], '+')])
+
+
+======================================================================
+FAIL: test_prop_GAC_2 (__main__.TestPropGAC)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "<built-in function vars>". Failed to solve board!
+(4, [(16, [(1, 1), (1, 2), (2, 2)], '*'), (7, [(1, 3), (1, 4), (2, 3)], '+'), (4, [(2, 4)], '?'), (2, [(2, 1), (3, 1)], '-'), (2, [(3, 3), (3, 4)], '/'), (2, [(4, 3), (4, 4)], '/'), (12, [(3, 2), (4, 1), (4, 2)], '*')])
+
+
+======================================================================
+FAIL: test_prop_GAC_3 (__main__.TestPropGAC)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "<built-in function vars>". Failed to solve board!
+(4, [(4, [(1, 1)], '?'), (2, [(1, 2), (1, 3)], '/'), (1, [(1, 4), (2, 4)], '-'), (6, [(2, 1), (2, 2), (3, 2)], '+'), (12, [(2, 3), (3, 3), (3, 4)], '*'), (1, [(3, 1), (4, 1)], '-'), (5, [(4, 2), (4, 3)], '+'), (2, [(4, 4)], '?')])
+
+
+======================================================================
+FAIL: test_prop_GAC_4 (__main__.TestPropGAC)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "<built-in function vars>". Failed to solve board!
+(4, [(2, [(1, 1), (1, 2)], '/'), (3, [(1, 3), (1, 4), (2, 3)], '*'), (8, [(2, 1), (2, 2), (3, 1)], '+'), (6, [(2, 4), (3, 4)], '*'), (2, [(3, 2), (3, 3)], '-'), (2, [(4, 1), (4, 2)], '-'), (2, [(4, 3), (4, 4)], '/')])
+
+
+======================================================================
+FAIL: test_prop_GAC_5 (__main__.TestPropGAC)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "<built-in function vars>". Failed to solve board!
+(5, [(4, [(1, 1), (2, 1)], '-'), (2, [(1, 2), (1, 3)], '/'), (1, [(1, 4), (2, 4)], '-'), (1, [(1, 5), (2, 5)], '-'), (9, [(2, 2), (2, 3)], '+'), (3, [(3, 1), (3, 2)], '-'), (6, [(3, 3), (3, 4), (4, 4)], '*'), (9, [(3, 5), (4, 5)], '+'), (7, [(4, 1), (5, 1)], '+'), (3, [(4, 2), (4, 3)], '-'), (6, [(5, 2), (5, 3)], '*'), (4, [(5, 4), (5, 5)], '-')])
+
+
+======================================================================
+FAIL: test_prop_GAC_6 (__main__.TestPropGAC)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "<built-in function vars>". Failed to solve board!
+(5, [(10, [(1, 1), (1, 2), (2, 1), (2, 2)], '+'), (18, [(1, 3), (1, 4), (2, 3), (2, 4), (3, 4)], '+'), (2, [(1, 5), (2, 5), (3, 5)], '-'), (1, [(3, 1), (3, 2), (3, 3)], '-'), (600, [(4, 1), (4, 2), (4, 3), (5, 1), (5, 2), (5, 3)], '*'), (2, [(4, 4), (5, 4), (5, 5)], '/'), (3, [(4, 5)], '?')])
+
+
+======================================================================
+FAIL: test_prop_GAC_7 (__main__.TestPropGAC)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "<built-in function vars>". Failed to solve board!
+(5, [(2, [(1, 1), (2, 1)], '-'), (2, [(1, 2), (1, 3)], '/'), (1, [(1, 4), (1, 5)], '-'), (1, [(2, 2)], '?'), (2, [(2, 3), (2, 4)], '-'), (9, [(2, 5), (3, 5), (4, 5)], '+'), (6, [(3, 1), (3, 2)], '*'), (4, [(3, 3)], '?'), (3, [(3, 4), (4, 4)], '+'), (3, [(4, 1), (5, 1)], '-'), (15, [(4, 2), (4, 3)], '*'), (9, [(5, 2), (5, 3)], '+'), (1, [(5, 4), (5, 5)], '-')])
+
+
+======================================================================
+FAIL: test_prop_GAC_8 (__main__.TestPropGAC)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "<built-in function vars>". Failed to solve board!
+(6, [(11, [(1, 1), (2, 1)], '+'), (2, [(1, 2), (1, 3)], '/'), (20, [(1, 4), (2, 4)], '*'), (6, [(1, 5), (1, 6), (2, 6), (3, 6)], '*'), (3, [(2, 2), (2, 3)], '-'), (3, [(2, 5), (3, 5)], '/'), (240, [(3, 1), (3, 2), (4, 1), (4, 2)], '*'), (6, [(3, 3), (3, 4)], '*'), (6, [(4, 3), (5, 3)], '*'), (7, [(4, 4), (5, 4), (5, 5)], '+'), (30, [(4, 5), (4, 6)], '*'), (6, [(5, 1), (5, 2)], '*'), (9, [(5, 6), (6, 6)], '+'), (8, [(6, 1), (6, 2), (6, 3)], '+'), (2, [(6, 4), (6, 5)], '/')])
+
+
+======================================================================
+FAIL: test_prop_GAC_9 (__main__.TestPropGAC)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "<built-in function vars>". Failed to solve board!
+(6, [(2, [(1, 1), (1, 2), (1, 3)], '/'), (3, [(1, 4), (1, 5)], '-'), (11, [(1, 6), (2, 6), (3, 6)], '+'), (2, [(2, 1), (2, 2), (2, 3)], '/'), (40, [(2, 4), (2, 5), (3, 4), (3, 5)], '*'), (14, [(3, 1), (4, 1), (5, 1), (6, 1)], '+'), (3600, [(3, 2), (3, 3), (4, 2), (4, 3), (5, 2), (5, 3)], '*'), (120, [(4, 4), (5, 4), (6, 4)], '*'), (1, [(4, 5), (4, 6), (5, 5), (5, 6)], '-'), (5, [(6, 2), (6, 3)], '-'), (5, [(6, 5), (6, 6)], '+')])
+
+
+----------------------------------------------------------------------
+Ran 44 tests in 1.559s
+
+FAILED (failures=19, errors=1)
+----------------------------------------------------------------------
+Time spent:
+
+test_bne_grid_1: 0.0004s
+test_bne_grid_2: 0.0003s
+test_bne_grid_3: 0.0013s
+test_bne_grid_4: 0.0040s
+test_bne_grid_5: 0.0097s
+test_nary_grid_1: 0.0001s
+test_nary_grid_2: 0.0008s
+test_nary_grid_3: 0.0055s
+test_nary_grid_4: 0.0434s
+test_bin_prop_fc_0: 0.0004s
+test_bin_prop_fc_1: 0.0013s
+test_bin_prop_fc_2: 0.0013s
+test_bin_prop_fc_3: 0.0013s
+test_bin_prop_fc_4: 0.0013s
+test_prop_fc_0: 0.0006s
+test_prop_fc_1: 0.2922s
+test_prop_fc_2: 0.5778s
+test_prop_fc_3: 0.0008s
+test_prop_fc_4: 0.5776s
+----------------------------------------------------------------------
+Grades:
+
+FC: 0.5/0.5
+GAC: 0.0/0.75
+MRV: 0.25/0.25
+DH: 0.25/0.25
+BINARY: 0.1/0.25
+NARY: 0.25/0.25
+CAGEY: 0.0/0.5
+
+TOTAL: 1.35/2.75
+Code quality: ?/0.25
+
+Running time: 2024_01_30-14:34:59
+
+===========================================
+test_bne_grid_1 (__main__.TestBinaryGrid) ... ok
+test_bne_grid_2 (__main__.TestBinaryGrid) ... ok
+test_bne_grid_3 (__main__.TestBinaryGrid) ... FAIL
+test_bne_grid_4 (__main__.TestBinaryGrid) ... FAIL
+test_bne_grid_5 (__main__.TestBinaryGrid) ... FAIL
+test_cage_existence (__main__.TestCageConstraints) ... ERROR
+test_cages_1 (__main__.TestCageConstraints) ... FAIL
+test_cages_2 (__main__.TestCageConstraints) ... FAIL
+test_cages_3 (__main__.TestCageConstraints) ... FAIL
+test_cages_4 (__main__.TestCageConstraints) ... FAIL
+test_cages_5 (__main__.TestCageConstraints) ... FAIL
+test_cages_6 (__main__.TestCageConstraints) ... FAIL
+test_dh_1 (__main__.TestDH) ... ok
+test_dh_2 (__main__.TestDH) ... ok
+test_dh_3 (__main__.TestDH) ... ok
+test_dh_4 (__main__.TestDH) ... ok
+test_mrv_1 (__main__.TestMRV) ... ok
+test_mrv_2 (__main__.TestMRV) ... ok
+test_mrv_3 (__main__.TestMRV) ... ok
+test_mrv_4 (__main__.TestMRV) ... ok
+test_nary_grid_1 (__main__.TestNaryGrid) ... ok
+test_nary_grid_2 (__main__.TestNaryGrid) ... ok
+test_nary_grid_3 (__main__.TestNaryGrid) ... ok
+test_nary_grid_4 (__main__.TestNaryGrid) ... ok
+test_bin_prop_fc_0 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_1 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_2 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_3 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_4 (__main__.TestPropFC) ... ok
+test_prop_fc_0 (__main__.TestPropFC) ... ok
+test_prop_fc_1 (__main__.TestPropFC) ... ok
+test_prop_fc_2 (__main__.TestPropFC) ... ok
+test_prop_fc_3 (__main__.TestPropFC) ... ok
+test_prop_fc_4 (__main__.TestPropFC) ... ok
+test_prop_GAC_0 (__main__.TestPropGAC) ... ok
+test_prop_GAC_1 (__main__.TestPropGAC) ... ok
+test_prop_GAC_2 (__main__.TestPropGAC) ... ok
+test_prop_GAC_3 (__main__.TestPropGAC) ... ok
+test_prop_GAC_4 (__main__.TestPropGAC) ... ok
+test_prop_GAC_5 (__main__.TestPropGAC) ... ok
+test_prop_GAC_6 (__main__.TestPropGAC) ... ok
+test_prop_GAC_7 (__main__.TestPropGAC) ... ok
+test_prop_GAC_8 (__main__.TestPropGAC) ... ok
+test_prop_GAC_9 (__main__.TestPropGAC) ... ok
+
+======================================================================
+ERROR: test_cage_existence (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bryantay/Desktop/untitled folder/AI/A1/autograder_stu.py", line 616, in test_cage_existence
+    csp, var_array = cagey_csp_model(board)
+TypeError: cannot unpack non-iterable NoneType object
+
+======================================================================
+FAIL: test_bne_grid_3 (__main__.TestBinaryGrid)
+----------------------------------------------------------------------
+AssertionError: False is not true : Encoded incorrect number of constraints for board: (4, [(2, [(1, 1), (1, 2)], '/'), (3, [(1, 3), (1, 4), (2, 3)], '*'), (8, [(2, 1), (2, 2), (3, 2)], '+'), (4, [(3, 4)], '?'), (3, [(3, 1), (4, 1)], '-'), (4, [(3, 3)], '?'), (6, [(3, 4), (4, 4)], '*'), (2, [(4, 2), (4, 3)], '/')])
+
+
+======================================================================
+FAIL: test_bne_grid_4 (__main__.TestBinaryGrid)
+----------------------------------------------------------------------
+AssertionError: False is not true : Encoded incorrect number of constraints for board: (5, [(1, [(1, 1), (2, 1)], '-'), (10, [(1, 2), (1, 3), (2, 3), (4, 3)], '+'), (9, [(1, 4), (1, 5), (2, 4), (2, 5)], '+'), (40, [(2, 2), (3, 1), (3, 2)], '*'), (50, [(3, 4), (4, 3), (4, 4)], '*'), (10, [(3, 5), (4, 5), (5, 5)], '+'), (9, [(4, 1), (4, 2), (5, 1), (5, 2)], '+'), (4, [(5, 3), (5, 4)], '/')])
+
+
+======================================================================
+FAIL: test_bne_grid_5 (__main__.TestBinaryGrid)
+----------------------------------------------------------------------
+AssertionError: False is not true : Encoded incorrect number of constraints for board: (6, [(11, [(1, 1), (2, 1)], '+'), (3, [(1, 2), (2, 2)], '*'), (20, [(1, 3), (2, 3), (3, 3)], '*'), (2, [(1, 4), (1, 5)], '-'), (6, [(1, 6), (2, 6)], '/'), (6, [(2, 4), (2, 5)], '*'), (5, [(3, 1), (4, 1)], '+'), (40, [(3, 2), (4, 2), (5, 2)], '*'), (10, [(3, 4), (4, 4)], '+'), (10, [(3, 5), (3, 6)], '*'), (3, [(4, 3), (5, 3)], '-'), (8, [(4, 5), (4, 6), (5, 6)], '+'), (1, [(5, 1), (6, 1), (6, 2)], '-'), (11, [(5, 4), (5, 5)], '+'), (1, [(6, 3), (6, 4)], '-'), (2, [(6, 5), (6, 6)], '-')])
+
+
+======================================================================
+FAIL: test_cages_1 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(2, [(4, [(1, 1), (1, 2), (2, 1), (2, 2)], '+')])
+
+
+======================================================================
+FAIL: test_cages_2 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(2, [(4, [(1, 1), (1, 2), (2, 1), (2, 2)], '-')])
+
+
+======================================================================
+FAIL: test_cages_3 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(2, [(4, [(1, 1), (1, 2), (2, 1), (2, 2)], '*')])
+
+
+======================================================================
+FAIL: test_cages_4 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(3, [(10, [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)], '+')])
+
+
+======================================================================
+FAIL: test_cages_5 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(3, [(7, [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)], '-')])
+
+
+======================================================================
+FAIL: test_cages_6 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(3, [(10, [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)], '*')])
+
+
+----------------------------------------------------------------------
+Ran 44 tests in 1.782s
+
+FAILED (failures=9, errors=1)
+----------------------------------------------------------------------
+Time spent:
+
+test_bne_grid_1: 0.0003s
+test_bne_grid_2: 0.0003s
+test_bne_grid_3: 0.0011s
+test_bne_grid_4: 0.0031s
+test_bne_grid_5: 0.0079s
+test_nary_grid_1: 0.0001s
+test_nary_grid_2: 0.0006s
+test_nary_grid_3: 0.0048s
+test_nary_grid_4: 0.0396s
+test_bin_prop_fc_0: 0.0004s
+test_bin_prop_fc_1: 0.0013s
+test_bin_prop_fc_2: 0.0013s
+test_bin_prop_fc_3: 0.0013s
+test_bin_prop_fc_4: 0.0014s
+test_prop_fc_0: 0.0006s
+test_prop_fc_1: 0.3027s
+test_prop_fc_2: 0.5870s
+test_prop_fc_3: 0.0008s
+test_prop_fc_4: 0.5807s
+test_prop_GAC_0: 0.0007s
+test_prop_GAC_1: 0.0017s
+test_prop_GAC_2: 0.0028s
+test_prop_GAC_3: 0.0022s
+test_prop_GAC_4: 0.0021s
+test_prop_GAC_5: 0.0080s
+test_prop_GAC_6: 0.0349s
+test_prop_GAC_7: 0.0073s
+test_prop_GAC_8: 0.0709s
+test_prop_GAC_9: 0.1114s
+----------------------------------------------------------------------
+Grades:
+
+FC: 0.5/0.5
+GAC: 0.75/0.75
+MRV: 0.25/0.25
+DH: 0.25/0.25
+BINARY: 0.1/0.25
+NARY: 0.25/0.25
+CAGEY: 0.0/0.5
+
+TOTAL: 2.1/2.75
+Code quality: ?/0.25
+
+Running time: 2024_01_30-14:41:20
+
+===========================================
+test_bne_grid_1 (__main__.TestBinaryGrid) ... ok
+test_bne_grid_2 (__main__.TestBinaryGrid) ... ok
+test_bne_grid_3 (__main__.TestBinaryGrid) ... FAIL
+test_bne_grid_4 (__main__.TestBinaryGrid) ... FAIL
+test_bne_grid_5 (__main__.TestBinaryGrid) ... FAIL
+test_cage_existence (__main__.TestCageConstraints) ... ERROR
+test_cages_1 (__main__.TestCageConstraints) ... FAIL
+test_cages_2 (__main__.TestCageConstraints) ... FAIL
+test_cages_3 (__main__.TestCageConstraints) ... FAIL
+test_cages_4 (__main__.TestCageConstraints) ... FAIL
+test_cages_5 (__main__.TestCageConstraints) ... FAIL
+test_cages_6 (__main__.TestCageConstraints) ... FAIL
+test_dh_1 (__main__.TestDH) ... ok
+test_dh_2 (__main__.TestDH) ... ok
+test_dh_3 (__main__.TestDH) ... ok
+test_dh_4 (__main__.TestDH) ... ok
+test_mrv_1 (__main__.TestMRV) ... ok
+test_mrv_2 (__main__.TestMRV) ... ok
+test_mrv_3 (__main__.TestMRV) ... ok
+test_mrv_4 (__main__.TestMRV) ... ok
+test_nary_grid_1 (__main__.TestNaryGrid) ... ok
+test_nary_grid_2 (__main__.TestNaryGrid) ... ok
+test_nary_grid_3 (__main__.TestNaryGrid) ... ok
+test_nary_grid_4 (__main__.TestNaryGrid) ... ok
+test_bin_prop_fc_0 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_1 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_2 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_3 (__main__.TestPropFC) ... ok
+test_bin_prop_fc_4 (__main__.TestPropFC) ... ok
+test_prop_fc_0 (__main__.TestPropFC) ... ok
+test_prop_fc_1 (__main__.TestPropFC) ... ok
+test_prop_fc_2 (__main__.TestPropFC) ... ok
+test_prop_fc_3 (__main__.TestPropFC) ... ok
+test_prop_fc_4 (__main__.TestPropFC) ... ok
+test_prop_GAC_0 (__main__.TestPropGAC) ... ok
+test_prop_GAC_1 (__main__.TestPropGAC) ... ok
+test_prop_GAC_2 (__main__.TestPropGAC) ... ok
+test_prop_GAC_3 (__main__.TestPropGAC) ... ok
+test_prop_GAC_4 (__main__.TestPropGAC) ... ok
+test_prop_GAC_5 (__main__.TestPropGAC) ... ok
+test_prop_GAC_6 (__main__.TestPropGAC) ... ok
+test_prop_GAC_7 (__main__.TestPropGAC) ... ok
+test_prop_GAC_8 (__main__.TestPropGAC) ... ok
+test_prop_GAC_9 (__main__.TestPropGAC) ... ok
+
+======================================================================
+ERROR: test_cage_existence (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bryantay/Desktop/untitled folder/AI/A1/autograder_stu.py", line 616, in test_cage_existence
+    csp, var_array = cagey_csp_model(board)
+TypeError: cannot unpack non-iterable NoneType object
+
+======================================================================
+FAIL: test_bne_grid_3 (__main__.TestBinaryGrid)
+----------------------------------------------------------------------
+AssertionError: False is not true : Encoded incorrect number of constraints for board: (4, [(2, [(1, 1), (1, 2)], '/'), (3, [(1, 3), (1, 4), (2, 3)], '*'), (8, [(2, 1), (2, 2), (3, 2)], '+'), (4, [(3, 4)], '?'), (3, [(3, 1), (4, 1)], '-'), (4, [(3, 3)], '?'), (6, [(3, 4), (4, 4)], '*'), (2, [(4, 2), (4, 3)], '/')])
+
+
+======================================================================
+FAIL: test_bne_grid_4 (__main__.TestBinaryGrid)
+----------------------------------------------------------------------
+AssertionError: False is not true : Encoded incorrect number of constraints for board: (5, [(1, [(1, 1), (2, 1)], '-'), (10, [(1, 2), (1, 3), (2, 3), (4, 3)], '+'), (9, [(1, 4), (1, 5), (2, 4), (2, 5)], '+'), (40, [(2, 2), (3, 1), (3, 2)], '*'), (50, [(3, 4), (4, 3), (4, 4)], '*'), (10, [(3, 5), (4, 5), (5, 5)], '+'), (9, [(4, 1), (4, 2), (5, 1), (5, 2)], '+'), (4, [(5, 3), (5, 4)], '/')])
+
+
+======================================================================
+FAIL: test_bne_grid_5 (__main__.TestBinaryGrid)
+----------------------------------------------------------------------
+AssertionError: False is not true : Encoded incorrect number of constraints for board: (6, [(11, [(1, 1), (2, 1)], '+'), (3, [(1, 2), (2, 2)], '*'), (20, [(1, 3), (2, 3), (3, 3)], '*'), (2, [(1, 4), (1, 5)], '-'), (6, [(1, 6), (2, 6)], '/'), (6, [(2, 4), (2, 5)], '*'), (5, [(3, 1), (4, 1)], '+'), (40, [(3, 2), (4, 2), (5, 2)], '*'), (10, [(3, 4), (4, 4)], '+'), (10, [(3, 5), (3, 6)], '*'), (3, [(4, 3), (5, 3)], '-'), (8, [(4, 5), (4, 6), (5, 6)], '+'), (1, [(5, 1), (6, 1), (6, 2)], '-'), (11, [(5, 4), (5, 5)], '+'), (1, [(6, 3), (6, 4)], '-'), (2, [(6, 5), (6, 6)], '-')])
+
+
+======================================================================
+FAIL: test_cages_1 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(2, [(4, [(1, 1), (1, 2), (2, 1), (2, 2)], '+')])
+
+
+======================================================================
+FAIL: test_cages_2 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(2, [(4, [(1, 1), (1, 2), (2, 1), (2, 2)], '-')])
+
+
+======================================================================
+FAIL: test_cages_3 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(2, [(4, [(1, 1), (1, 2), (2, 1), (2, 2)], '*')])
+
+
+======================================================================
+FAIL: test_cages_4 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(3, [(10, [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)], '+')])
+
+
+======================================================================
+FAIL: test_cages_5 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(3, [(7, [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)], '-')])
+
+
+======================================================================
+FAIL: test_cages_6 (__main__.TestCageConstraints)
+----------------------------------------------------------------------
+AssertionError: False is not true : 
+
+Student code threw exception "cannot unpack non-iterable NoneType object". Failed to construct board!
+(3, [(10, [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)], '*')])
+
+
+----------------------------------------------------------------------
+Ran 44 tests in 1.740s
+
+FAILED (failures=9, errors=1)
+----------------------------------------------------------------------
+Time spent:
+
+test_bne_grid_1: 0.0003s
+test_bne_grid_2: 0.0003s
+test_bne_grid_3: 0.0010s
+test_bne_grid_4: 0.0031s
+test_bne_grid_5: 0.0080s
+test_nary_grid_1: 0.0001s
+test_nary_grid_2: 0.0006s
+test_nary_grid_3: 0.0047s
+test_nary_grid_4: 0.0402s
+test_bin_prop_fc_0: 0.0004s
+test_bin_prop_fc_1: 0.0013s
+test_bin_prop_fc_2: 0.0013s
+test_bin_prop_fc_3: 0.0013s
+test_bin_prop_fc_4: 0.0013s
+test_prop_fc_0: 0.0006s
+test_prop_fc_1: 0.2974s
+test_prop_fc_2: 0.5673s
+test_prop_fc_3: 0.0008s
+test_prop_fc_4: 0.5678s
+test_prop_GAC_0: 0.0007s
+test_prop_GAC_1: 0.0016s
+test_prop_GAC_2: 0.0026s
+test_prop_GAC_3: 0.0022s
+test_prop_GAC_4: 0.0021s
+test_prop_GAC_5: 0.0076s
+test_prop_GAC_6: 0.0348s
+test_prop_GAC_7: 0.0077s
+test_prop_GAC_8: 0.0701s
+test_prop_GAC_9: 0.1084s
+----------------------------------------------------------------------
+Grades:
+
+FC: 0.5/0.5
+GAC: 0.75/0.75
+MRV: 0.25/0.25
+DH: 0.25/0.25
+BINARY: 0.1/0.25
+NARY: 0.25/0.25
+CAGEY: 0.0/0.5
+
+TOTAL: 2.1/2.75
+Code quality: ?/0.25
+
+Running time: 2024_01_30-14:45:40
+
+===========================================
