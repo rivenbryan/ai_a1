@@ -1,7 +1,7 @@
 # =============================
-# Student Names:
-# Group ID:
-# Date:
+# Student Names: Vincent Hung, Bryan {IDR ur last name}
+# Group ID: 28
+# Date: February 2, 2024
 # =============================
 # CISC 352 - W23
 # cagey_csp.py
@@ -210,24 +210,22 @@ def cagey_csp_model(cagey_grid):
     #cage[2] = operator
     domain = ['+', '-', '/', '*', '?']
     for cage in cagey_grid[1]:
-        #Add Cage as variable?
+        #Add Cage as variable
         #Create constraint for cage
         #Create sat_tuples for constraint
         #Add to existing csp_grid
+        #Add cage as variable
 
         #Add cage as variable
-        #"Cage_op(4:+:[Var-Cell11, Var-Cell12, Var-Cell21, Var-Cell22])"
-        #"Cage_op(value:operator:list of variable)"
         cagevarlist = []
         for x in cage[1]:
-            arrayindex = (x[0]-1)*n + (x[1]-1)
+            arrayindex = (x[0]-1)*n + (x[1]-1) #Based off explanation of grid
             cagevarlist.append(variable_grid[arrayindex])
         cage_op = Variable('Cage_op({}:{}:{})'.format(cage[0],cage[2],cagevarlist),domain)
         csp_grid.add_var(cage_op)
 
         #Create constraint for cage
-        #con0 = Constraint('Cage(4:+:[Var-Cell11, Var-Cell12, Var-Cell21, Var-Cell22])', scope0)
-        temp = cagevarlist
+        temp = cagevarlist #create duplicate list to maintain original list without operator added
         temp.append(cage_op)
         cage_con = Constraint('Cage({}:{}:{})'.format(cage[0],cage[2],cagevarlist),temp)
 
