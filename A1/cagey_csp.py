@@ -99,50 +99,45 @@ def binary_ne_grid(cagey_grid):
     # nxn array where each cell is Variable object which has domain of 1,2,3. Without contraints, it means that each cell can be any of the values in its domain
     for row in range(1,n+1):
         for col in range(1,n+1):
-            variable_grid.append(Variable('Cell({},{})'.format(row,col),domain))
+            variable_grid.append(Variable('V{}{}'.format(row,col),domain))
     csp_grid = CSP("Grid",variable_grid)
-    
-    
-    
+  
     for row in range(n):
+        sat_tuple = []
+        for satrow in range(1,n+1):
+            for satcol in range(1,n+1):
+                #Applying constraint
+                if satrow != satcol:
+                    sat_tuple.append((satrow, satcol))
+
         for cell in itertools.combinations(range(n), 2):
             row_var = []
             row_var.append(variable_grid[row*n + cell[0]])
             row_var.append(variable_grid[row*n + cell[1]])
-            rowcon = Constraint('Row{}NE{} {}'.format(row+1,cell[0]+1,cell[1]+1),row_var)
+            rowcon = Constraint('NE(V{}{}V{}{})'.format(row+1,cell[0]+1,row+1,cell[1]+1), row_var)
 
-        sat_tuple = []
-        for row in range(1,n+1):
-            for col in range(1,n+1):
-                #Applying constraint
-                if row != col:
-                    sat_tuple.append((row, col))
-            #Acceptable possibilities added
+        #Acceptable possibilities added
             rowcon.add_satisfying_tuples(sat_tuple)
-            #ccon.add_satisfying_tuples(sat_tuple)
             csp_grid.add_constraint(rowcon)
-            #csp_grid.add_constraint(ccon)
 
     for col in range(n):
+        sat_tuple = []
+        for satrow in range(1,n+1):
+            for satcol in range(1,n+1):
+                #Applying constraint
+                if satrow != satcol:
+                    sat_tuple.append((satrow, satcol))
         for cell in itertools.combinations(range(n), 2):
             col_var = []
             col_var.append(variable_grid[col + cell[0]*n])
             col_var.append(variable_grid[col + cell[1]*n])
-            ccon = Constraint('Col{}NE{} {}'.format(col+1,cell[0]+1,cell[1]+1),col_var)
+            ccon = Constraint('NE(V{}{}V{}{})'.format(cell[0]+1,col+1,cell[1]+1,col+1),col_var)
 
-        sat_tuple = []
-        for row in range(1,n+1):
-            for col in range(1,n+1):
-                #Applying constraint
-                if row != col:
-                    sat_tuple.append((row, col))
-                    print(sat_tuple)
+    
             #Acceptable possibilities added
             ccon.add_satisfying_tuples(sat_tuple)
-            #ccon.add_satisfying_tuples(sat_tuple)
+            print(ccon)
             csp_grid.add_constraint(ccon)
-            #csp_grid.add_constraint(ccon)
-            
 
     return csp_grid, variable_grid
 
