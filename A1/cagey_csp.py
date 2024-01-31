@@ -90,36 +90,38 @@ from cspbase import *
 def binary_ne_grid(cagey_grid):
     #Create grid
     n = cagey_grid[0] #index 0 should be size of the grid
-    #variable_grid = [[x for x in range(n)] for y in range(n)]
-    domain = [x+1 for x in range(n)]
+    domain = [x+1 for x in range(n)] # [1,2,3]
     variable_grid = []
     
     
     #Create Variable grid, with cspbase
-    # nxn array where each cell is Variable object which has domain of 1,2,3. Without contraints, it means that each cell can be any of the values in its domain
+    #nxn array where each cell is Variable object which has domain of 1,2,3. Without contraints, it means that each cell can be any of the values in its domain
     for row in range(1,n+1):
         for col in range(1,n+1):
-            variable_grid.append(Variable('Cell({},{})'.format(row,col),domain))
-    csp_grid = CSP("Grid",variable_grid)
+            variable_grid.append(Variable('Cell({},{})'.format(row,col),domain)) #Create variables for grid
+    csp_grid = CSP("Grid",variable_grid)#create CSP object with grid of variables
   
     for row in range(n):
         sat_tuple = []
+        #find all combinations, improve to itertools if theres time
         for satrow in range(1,n+1):
             for satcol in range(1,n+1):
                 #Applying constraint
-                if satrow != satcol:
+                if satrow != satcol: #Not equals self
                     sat_tuple.append((satrow, satcol))
 
         for cell in itertools.combinations(range(n), 2):
+            #Add the two cells into scope
             row_var = []
             row_var.append(variable_grid[row*n + cell[0]])
             row_var.append(variable_grid[row*n + cell[1]])
             rowcon = Constraint('NE(V{}{}V{}{})'.format(row+1,cell[0]+1,row+1,cell[1]+1), row_var)
 
-        #Acceptable possibilities added
+            #Acceptable possibilities added to constraint
             rowcon.add_satisfying_tuples(sat_tuple)
             csp_grid.add_constraint(rowcon)
-
+    
+    #Same as rows but for coloumns
     for col in range(n):
         sat_tuple = []
         for satrow in range(1,n+1):
@@ -182,6 +184,7 @@ def nary_ad_grid(cagey_grid):
 
     return csp_grid, variable_grid
 
+#Helper so there isnt a wall of if statements
 def useoperator(val,val2,operator):
     if operator == "+":
         return val + val2
@@ -267,7 +270,6 @@ def cagey_csp_model(cagey_grid):
                             sat_tuples.append(t)
                             
             cage_con.add_satisfying_tuples(sat_tuples)
-        print(cage_op)
         variable_grid.append(cage_op)
         csp_grid.add_constraint(cage_con)
         
