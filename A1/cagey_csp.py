@@ -99,7 +99,7 @@ def binary_ne_grid(cagey_grid):
     # nxn array where each cell is Variable object which has domain of 1,2,3. Without contraints, it means that each cell can be any of the values in its domain
     for row in range(1,n+1):
         for col in range(1,n+1):
-            variable_grid.append(Variable('V{}{}'.format(row,col),domain))
+            variable_grid.append(Variable('Cell({},{})'.format(row,col),domain))
     csp_grid = CSP("Grid",variable_grid)
   
     for row in range(n):
@@ -136,7 +136,6 @@ def binary_ne_grid(cagey_grid):
     
             #Acceptable possibilities added
             ccon.add_satisfying_tuples(sat_tuple)
-            print(ccon)
             csp_grid.add_constraint(ccon)
 
     return csp_grid, variable_grid
@@ -183,12 +182,101 @@ def nary_ad_grid(cagey_grid):
 
     return csp_grid, variable_grid
 
+def useoperator(val,val2,operator):
+    if operator == "+":
+        return val + val2
+    elif operator == "-":
+        return val - val2
+    elif operator == "*":
+        return val * val2
+    elif operator == "/":
+        return val / val2
 
 def cagey_csp_model(cagey_grid):
-    ##IMPLEMENT
-    pass
+    n = cagey_grid[0]
+    csp_grid, variable_grid = binary_ne_grid(cagey_grid)
+    '''each cage has the following structure
+    (v, [c1, c2, ..., cm], op)
 
-test = (3, [(3,[(1,1), (2,1)],"+"),(1, [(1,2)], '?'), (8, [(1,3), (2,3), (2,2)], "+"), (3, [(3,1)], '?'), (3, [(3,2), (3,3)], "+")])
+    v - the value of the cage.
+    [c1, c2, ..., cm] - is a list containing the address of each grid-cell which goes into the cage (e.g [(1,2), (1,1)])
+    op - a flag containing the operation used in the cage (None if unknown)'''
+    #Extract cages
+    #cage[0] = value
+    #cage[1] = cells in cage
+    #cage[2] = operator
+    domain = ['+', '-', '/', '*', '?']
+    for cage in cagey_grid[1]:
+        #Add Cage as variable?
+        #Create constraint for cage
+        #Create sat_tuples for constraint
+        #Add to existing csp_grid
 
-binary_ne_grid(test)
+        #Add cage as variable
+        #"Cage_op(4:+:[Var-Cell11, Var-Cell12, Var-Cell21, Var-Cell22])"
+        #"Cage_op(value:operator:list of variable)"
+        cagevarlist = []
+        for x in cage[1]:
+            arrayindex = (x[0]-1)*n + (x[1]-1)
+            cagevarlist.append(variable_grid[arrayindex])
+        cage_op = Variable('Cage_op({}:{}:{})'.format(cage[0],cage[2],cagevarlist),domain)
+        csp_grid.add_var(cage_op)
+
+        #Create constraint for cage
+        #con0 = Constraint('Cage(4:+:[Var-Cell11, Var-Cell12, Var-Cell21, Var-Cell22])', scope0)
+        temp = cagevarlist
+        temp.append(cage_op)
+        cage_con = Constraint('Cage({}:{}:{})'.format(cage[0],cage[2],cagevarlist),temp)
+
+        cage_op.assign(cage[2])
+
+        domains = []
+        for v in temp:
+            domains.append(v.cur_domain()) # since we select specific operator
+        
+        #Create sat_tuples for constraint
+        sat_tuples = []
+        if (cage[2] != "?") or (len(cagevarlist) == 1): #If not ?
+            for t in itertools.product(*domains):
+                if len(cagevarlist) == 1:#If only 1 cell in cage
+                    if cage[0] == t[0]: #If the cell value matchs cage value
+                        sat_tuples.append(t) 
+                else:
+                    total = t[0]
+                    for idx in range(1,len(t)-1): #Get sum of cage using operator
+                        total = useoperator(total, t[idx], t[-1])
+                    if(total == cage[0]): #If total in cage matches value of cage
+                        sat_tuples.append(t)
+                        print(t)
+
+            cage_con.add_satisfying_tuples(sat_tuples)
+
+        else: #operator is unknown, try them all
+            for oper in domain:
+                domains[-1] = oper #replace ?
+                #Do same as above
+                for t in itertools.product(*domains):
+                    if len(cagevarlist) == 1:#If only 1 cell in cage (Possible overlap with first part?)
+                        if cage[0] == t[0]: #If the cell value matchs cage value
+                            sat_tuples.append(t) 
+                    else:
+                        total = t[0]
+                        for idx in range(1,len(t)-1): #Get sum of cage using operator
+                            total = useoperator(total, t[idx], t[-1])
+                        if(total == cage[0]): #If total in cage matches value of cage
+                            sat_tuples.append(t)
+                            
+            cage_con.add_satisfying_tuples(sat_tuples)
+        print(cage_op)
+        variable_grid.append(cage_op)
+        csp_grid.add_constraint(cage_con)
+        
+    return csp_grid, variable_grid
+
+        
+#test = (3, [(3,[(1,1), (2,1)],"+"),(1, [(1,2)], '?'), (8, [(1,3), (2,3), (2,2)], "+"), (3, [(3,1)], '?'), (3, [(3,2), (3,3)], "+")])
+#test1 = (2,[(6, [(1, 1), (1, 2), (2, 1), (2, 2)], '+')])
+#binary_ne_grid(test)
 #nary_ad_grid(test)
+#cagey_csp_model(test1)
+#testtttta(test1)
