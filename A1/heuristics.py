@@ -1,7 +1,7 @@
 # =============================
-# Student Names:
-# Group ID:
-# Date:
+# Student Names: Vincent Hung, Bryan Tay
+# Group ID: 28
+# Date: February 2, 2024
 # =============================
 # CISC 352 - W23
 # heuristics.py
